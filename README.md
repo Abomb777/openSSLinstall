@@ -55,6 +55,25 @@ vim renew.sh
 crontab -e
 vim renew.sh
 
+perl /acme2.pl --account-key /etc/pki/tls/private/www.mytinymart.com.key --csr /etc/pki/tls/private/mytinymart.com.csr --acme-dir /var/www/html/www.mytinymart.com/.well-known/acme-challenge/ > /etc/pki/tls/certs/www_mytinymart_com.crt
+service httpd restart
+chmod 777 /renew.sh
+
+perl /acme2.pl --account-key /etc/pki/tls/private/www.mytinymart.com.key --csr /etc/pki/tls/private/mytinymart.com.csr --acme-dir /var/www/html/www.mytinymart.com/.well-known/acme-challenge/ > /etc/pki/tls/certs/www_mytinymart_com.crt
+
+----------------------------------------------------------------------------------------------------------------
+
+wget https://raw.githubusercontent.com/diafygi/acme-tiny/master/acme_tiny.py
+
+perl /acme_tiny.pl --account-key /etc/pki/tls/private/www.mytinymart.com.key --csr /etc/pki/tls/private/mytinymart.com.csr --acme-dir /var/www/html/www.mytinymart.com/.well-known/acme-challenge/ > /etc/pki/tls/certs/www_mytinymart_com.crt
+python /acme_tiny.pl --account-key /etc/pki/tls/private/www.mytinymart.com.key --csr /etc/pki/tls/private/mytinymart.com.csr --acme-dir /var/www/html/www.mytinymart.com/.well-known/acme-challenge/ > /etc/pki/tls/certs/www_mytinymart_com.crt
+python /acme_tiny.py --account-key /etc/pki/tls/private/www.mytinymart.com.key --csr /etc/pki/tls/private/mytinymart.com.csr --acme-dir /var/www/html/www.mytinymart.com/.well-known/acme-challenge/ > /etc/pki/tls/certs/www_mytinymart_com.crt
+service httpd restart
+find / -name *.crt
+cp /root/www_mytinymart_com.crt /etc/pki/tls/certs/www_mytinymart_com.crt
+service httpd restart
+
+perl /acme2.pl --account-key /etc/pki/tls/private/www.mytinymart.com.key --csr /etc/pki/tls/private/mytinymart.com.csr --acme-dir /var/www/html/www.mytinymart.com/.well-known/acme-challenge/ > /etc/pki/tls/certs/www_mytinymart_com.crt
 
 
 
